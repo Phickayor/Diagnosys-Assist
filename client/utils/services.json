@@ -1,0 +1,35 @@
+[
+  {
+    "service": "Online Diagnosis",
+    "image": "/images/aboutimg.jpg",
+    "description": "(Chat with a Doctor)"
+  },
+  {
+    "service": "Mobile Nursing",
+    "image": "/images/aboutimg.jpg"
+  },
+  {
+    "service": "Mental Nursing",
+    "image": "/images/aboutimg.jpg"
+  },
+  {
+    "service": "Home Embamblement",
+    "image": "/images/aboutimg.jpg"
+  },
+  {
+    "service": "Ambulance Services",
+    "image": "/images/aboutimg.jpg"
+  },
+  {
+    "service": "Geriatric Nursing",
+    "image": "/images/aboutimg.jpg"
+  },
+  {
+    "service": "Medical Outreach",
+    "image": "/images/aboutimg.jpg"
+  },
+  {
+    "service": "Recruitment of registered nurses",
+    "image": "/images/aboutimg.jpg"
+  }
+]

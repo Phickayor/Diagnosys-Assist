@@ -16,7 +16,7 @@ function Hero() {
         <button className="m-2 rounded-xl hover:bg-blue-600 font-semibold text-lg bg-blue-500 text-white w-fit  py-3 px-10">Try Now</button>
       </div>
       <img
-        className="rounded-3xl mx-auto w-2/5 h-[28rem]  object-cover"
+        className="rounded-3xl mx-auto w-2/5 h-[26rem]  object-cover"
         src="/images/heroimg.jpg"
       />
     </div>

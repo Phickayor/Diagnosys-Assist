@@ -6,11 +6,14 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 // Prevent fontawesome from adding its CSS since we did it manually above:
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { ToastContainer } from "react-toastify";
+import Background from "@/components/Background";
 config.autoAddCss = false;
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Component {...pageProps} /> <ToastContainer />
+      <Background>
+        <Component {...pageProps} /> <ToastContainer />
+      </Background>
     </>
   );
 }
