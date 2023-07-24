@@ -1,4 +1,5 @@
 const connectToDatabase = require("../config/mongoconfig");
+const generateToken = require("../utilities/authorization.utilities");
 const existingUser = async (req, res, next) => {
   var db = await connectToDatabase();
   var usersCollection = await db.collection("Users");
@@ -44,9 +45,13 @@ const login = async (req, res, next) => {
       (obj) => obj.email === info.email && obj.pswd === info.pswd
     ) !== undefined
   ) {
-    res.status(200).json({ message: "success"});
+    const { token, message, success } = await generateToken(info.email, info._id)
+    success ? 
+    res.status(200).json({ token,message}):
+    res.status(503).json({ message , error : true})
   }else{
-    res.status(404).json({message:"failed"})
+    res.status(404).json({message:"non-existing account"})
+    
   }
 };
 
