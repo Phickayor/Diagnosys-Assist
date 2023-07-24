@@ -29,7 +29,26 @@ const register = async (req, res, next) => {
   res.status(200).json({ status: "success" });
 };
 
-const login = async (req, res, next) => {};
+const login = async (req, res, next) => {
+  var info = {
+    email: req.body.email,
+    pswd: req.body.pswd
+  };
+  var db = await connectToDatabase();
+  var usersCollection = await db.collection("Users");
+  const accounts = await usersCollection
+    .find({}, { projection: { _id: 0, email: 1, pswd: 1 } })
+    .toArray();
+  if (
+    accounts.find(
+      (obj) => obj.email === info.email && obj.pswd === info.pswd
+    ) !== undefined
+  ) {
+    res.status(200).json({ message: "success"});
+  }else{
+    res.status(404).json({message:"failed"})
+  }
+};
 
 module.exports = {
   existingUser,
