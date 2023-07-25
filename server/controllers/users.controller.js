@@ -1,12 +1,12 @@
 const connectToDatabase = require("../config/mongoconfig");
-const generateToken = require("../utilities/authorization.utilities");
+const { generateToken } = require("../utilities/authorization.utilities");
 const existingUser = async (req, res, next) => {
   var db = await connectToDatabase();
   var usersCollection = await db.collection("Users");
-  const existingmails = await usersCollection
-    .find({}, { projection: { _id: 0, email: 1 } })
-    .toArray();
-  if (existingmails.find((obj) => obj.email === req.body.email) !== undefined) {
+  const result = await usersCollection.findOne({
+    email: req.body.email
+  });
+  if (result != undefined) {
     console.log("Existing User");
     res.status(409).json({ message: "Existing User" });
   } else {
@@ -16,7 +16,7 @@ const existingUser = async (req, res, next) => {
 
 const register = async (req, res, next) => {
   var info = {
-    username: req.body.username,
+    name: req.body.name,
     email: req.body.email,
     pswd: req.body.pswd,
     category: req.body.category,
@@ -31,27 +31,22 @@ const register = async (req, res, next) => {
 };
 
 const login = async (req, res, next) => {
-  var info = {
-    email: req.body.email,
-    pswd: req.body.pswd
-  };
+  var { email, pswd } = req.body;
   var db = await connectToDatabase();
   var usersCollection = await db.collection("Users");
-  const accounts = await usersCollection
-    .find({}, { projection: { _id: 0, email: 1, pswd: 1 } })
-    .toArray();
-  if (
-    accounts.find(
-      (obj) => obj.email === info.email && obj.pswd === info.pswd
-    ) !== undefined
-  ) {
-    const { token, message, success } = await generateToken(info.email, info._id)
-    success ? 
-    res.status(200).json({ token,message}):
-    res.status(503).json({ message , error : true})
-  }else{
-    res.status(404).json({message:"non-existing account"})
-    
+  const result = await usersCollection.findOne({ email: email });
+  if (result.email === email && result.pswd === pswd) {
+    const { token, message, success } = await generateToken(
+      result._id,
+      result.name,
+      result.email,
+      result.category
+    );
+    success
+      ? res.status(200).json({ token, message })
+      : res.status(503).json({ message, error: true });
+  } else {
+    res.status(404).json({ message: "non-existing account" });
   }
 };
 

@@ -1,29 +1,32 @@
 const jwt = require("jsonwebtoken");
 const secretkey = process.env.SECRET_KEY;
-const checkToken = async (token) => {
+const checkToken = async (req,res) => {
+    var {token} = req.body
   try {
     if (token === "" || token === undefined || token === null) {
-      return {
+      res.json({
         success: false
-      };
+      });
     } else {
-      return {
+      res.json({
         user_token: jwt.verify(token, secretkey),
         success: true
-      };
+      });
     }
   } catch (error) {
-    return {
+    res.json({
       message: error.message,
       success: false
-    };
+    });
   }
 };
-const generateToken = async (email, id, category) => {
+const generateToken = async (id, name, email, category) => {
   try {
     const payload = {
+      id,
+      name,
       email,
-      id
+      category
     };
     const token = jwt.sign(payload, secretkey, { expiresIn: "1h" });
     return token
