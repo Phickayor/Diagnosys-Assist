@@ -15,7 +15,7 @@ const verificationmail = async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("Email sent: " + info.response + otp);
+      console.log("Email sent: " + info.response);
       res.json({ info: "success" });
     }
   });
