@@ -2,7 +2,8 @@ const express = require("express");
 const {
   register,
   existingUser,
-  login
+  login,
+  photoupload
 } = require("../controllers/users.controller");
 const { checkToken } = require("../utilities/authorization.utilities");
 const validator = require("../utilities/emailvalidator.utilities");
@@ -14,4 +15,5 @@ router.post("/login", login);
 router.post("/verifytoken", checkToken);
 router.post("/verifytoken", checkToken);
 router.post("/verifyemail", verificationmail);
+router.post("/photoupload", photoupload);
 module.exports = router;

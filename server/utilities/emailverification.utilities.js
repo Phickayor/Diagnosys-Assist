@@ -1,5 +1,5 @@
 const transporter = require("../config/transporterconfig");
-const generateOtp = require("./otpgenerator");
+const generateOtp = require("./otpgenerator.utilities");
 
 const verificationmail = async (req, res) => {
   var email = req.body.email;
