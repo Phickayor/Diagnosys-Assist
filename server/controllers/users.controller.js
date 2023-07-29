@@ -4,6 +4,7 @@ const {
   encryptPassword,
   deCryptPassword
 } = require("../utilities/password.utilities");
+const updateDoc = require("../utilities/update.utilities");
 const existingUser = async (req, res, next) => {
   var db = await connectToDatabase();
   var usersCollection = await db.collection("Users");
@@ -58,21 +59,12 @@ const login = async (req, res, next) => {
 };
 const photoupload = async (req, res) => {
   var { image, email } = req.body;
-  try {
-    const db = await connectToDatabase();
-    const collection = db.collection("Users");
-    const filter = { email: email }; // Replace 'your-document-id' with the ID of the document you want to update
-    const update = {
-      profilePicUrl: image
-    }; // Modify this object to specify the fields and values you want to update
-
-    const result = await collection.updateOne(filter, { $set: update });
-    result.matchedCount === 1
-      ? res.json({ success: true })
-      : res.json({ success: false, message: "User doesn't exist" });
-  } catch (error) {
-    console.error("Error updating document:", error);
-  }
+  const filter = { email: email };
+  const update = { profilePicUrl: image };
+  const result = await updateDoc("Users", filter, update);
+  result.success
+    ? res.json({ success: true })
+    : res.json({ success: false, message: "User doesn't exist" });
 };
 module.exports = {
   existingUser,
