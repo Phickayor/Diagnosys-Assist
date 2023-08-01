@@ -12,8 +12,7 @@ const existingUser = async (req, res, next) => {
     email: req.body.email
   });
   if (result != undefined) {
-    console.log("Existing User");
-    res.status(409).json({ message: "Existing User" });
+    res.status(409).json({success:false, message: "Existing User" });
   } else {
     next();
   }
@@ -31,10 +30,15 @@ const register = async (req, res, next) => {
     address: req.body.address,
     profilePicUrl: req.body.profilePicUrl
   };
+  try {
+    
   var db = await connectToDatabase();
   var usersCollection = await db.collection("Users");
   usersCollection.insertOne(info);
-  res.status(200).json({ status: "success" });
+  res.status(200).json({ success: true });
+  } catch (error) {
+  res.status(503).json({ success: false,message:error });
+  }
 };
 
 const login = async (req, res, next) => {

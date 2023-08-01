@@ -5,8 +5,8 @@ import React from "react";
 function Header() {
   const menu = <FontAwesomeIcon icon={faBars} className="cursor-pointer text-xl"/>
   return (
-    <div className="flex py-4 lg:py-6 lg:px-10 px-5 text-black justify-between">
-      <h1 className="text-lg lg:text-2xl font-semibold self-center">Diagnosys Assist</h1>
+    <div className="flex py-6 lg:px-10 px-5 text-black justify-between">
+      <h1 className="text-xl lg:text-2xl font-semibold self-center">Diagnosys Assist</h1>
       <ul className="hidden lg:flex gap-x-4 self-center font-medium text-lg">
         <Link href="/">Home</Link>
         <Link href="/about">About</Link>
