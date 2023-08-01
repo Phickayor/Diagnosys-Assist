@@ -1,18 +1,9 @@
 import { faClose, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useRef } from "react";
+import Link from "next/link";
+import React from "react";
 function Login() {
-  const loginContainer = useRef(null)
-  const HandleDisplay = ()=>{
-    loginContainer.current.classList.toggle("hidden")
-  }
-  const close = (
-    <FontAwesomeIcon
-      icon={faClose}
-      className="text-xl cursor-pointer hover:scale-110"
-      onClick={HandleDisplay}
-    />
-  );
+
   const email = (
     <FontAwesomeIcon icon={faEnvelope} className="self-center text-blue-500" />
   );
@@ -21,17 +12,13 @@ function Login() {
     <FontAwesomeIcon icon={faLock} className="self-center text-blue-500" />
   );
   return (
-    <div
-      ref={loginContainer}
-      className="fixed top-0 left-0 h-screen w-screen flex flex-col justify-center"
-    >
+    <div className="fixed -z-20 bg-slate-200  top-0 left-0 h-screen w-screen flex flex-col justify-center">
       <div className="mx-auto space-y-4 bg-white/100 text-black w-96 p-5 rounded-2xl">
         <div className="flex justify-between">
           <div>
-            <h1 className="font-semibold text-2xl">Sign In</h1>
+            <h1 className="font-semibold my-2 text-2xl">Sign In</h1>
             <p>Please enter your details</p>
           </div>
-          {close}
         </div>
         <form className="space-y-3 flex flex-col">
           <div className="flex flex-col space-y-2 ">
@@ -57,14 +44,19 @@ function Login() {
               />
             </div>
           </div>
-         
-          <button type="submit" className="bg-blue-500 text-white w-11/12 font-semibold py-2 mx-auto self-center rounded-3xl">
+
+          <button
+            type="submit"
+            className="bg-blue-500 text-white w-11/12 font-semibold py-2 mx-auto self-center rounded-3xl"
+          >
             Sign In
           </button>
         </form>
         <p className="text-center">
           Don't have an account ?
-          <span className="text-blue-500 cursor-pointer"> Register</span>
+          <Link href="/auth/register" className="text-blue-500 cursor-pointer">
+            &nbsp;Register
+          </Link>
         </p>
       </div>
     </div>
