@@ -12,7 +12,7 @@ const existingUser = async (req, res, next) => {
     email: req.body.email
   });
   if (result != undefined) {
-    res.status(409).json({success:false, message: "Existing User" });
+    res.status(409).json({ success: false, message: "Existing User" });
   } else {
     next();
   }
@@ -31,13 +31,12 @@ const register = async (req, res, next) => {
     profilePicUrl: req.body.profilePicUrl
   };
   try {
-    
-  var db = await connectToDatabase();
-  var usersCollection = await db.collection("Users");
-  usersCollection.insertOne(info);
-  res.status(200).json({ success: true });
+    var db = await connectToDatabase();
+    var usersCollection = await db.collection("Users");
+    usersCollection.insertOne(info);
+    res.status(200).json({ success: true });
   } catch (error) {
-  res.status(503).json({ success: false,message:error });
+    res.status(503).json({ success: false, message: error });
   }
 };
 
@@ -46,17 +45,25 @@ const login = async (req, res, next) => {
   var db = await connectToDatabase();
   var usersCollection = await db.collection("Users");
   const result = await usersCollection.findOne({ email: email.toLowerCase() });
-  const decrypted = await deCryptPassword(pswd, result.pswd);
-  if (result.email === email && decrypted.success === true) {
-    const { token, message, success } = await generateToken(
-      result._id,
-      result.name,
-      result.email,
-      result.category
-    );
-    success
-      ? res.status(200).json({ token, message })
-      : res.status(503).json({ message, error: true });
+  if (result) {
+    try {
+      const decrypted = await deCryptPassword(pswd, result.pswd);
+      if (result.email === email && decrypted.success === true) {
+        const { token, message, success } = await generateToken(
+          result._id,
+          result.name,
+          result.email,
+          result.category
+        );
+        success
+          ? res.status(200).json({ token, message })
+          : res.status(503).json({ message, error: true });
+      } else {
+        res.status(404).json({ message: "non-existing account" });
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   } else {
     res.status(404).json({ message: "non-existing account" });
   }
