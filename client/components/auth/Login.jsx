@@ -1,10 +1,10 @@
 import baseurl from "@/config/host";
-import { faClose, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import {faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React from "react";
 function Login() {
-  const values = {
+  var values = {
     email: null,
     pswd: null
   };

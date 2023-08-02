@@ -1,3 +1,4 @@
+import baseurl from "@/config/host";
 import { faEnvelope, faLock, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -10,7 +11,8 @@ function Register() {
   };
   const HandleSubmit = async (e) => {
     e.preventDefault();
-    if(values.pswd!=pswd2){
+    // if(values.pswd === pswd2){
+    alert(values.pswd);
     var options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -18,7 +20,7 @@ function Register() {
     };
 
     try {
-      const res = await fetch(`${baseurl}/users/login`, options);
+      const res = await fetch(`${baseurl}/users/register`, options);
       const data = await res.json();
       data.success ? alert("registered") : alert("failed registration");
     } catch (error) {
@@ -26,11 +28,12 @@ function Register() {
         "Something went wrong:\n Check your internet connection and try again."
       );
     }
-  }else{
-    console.log('passwords do not match')
-  }
   };
-  const [pswd2, setPswd2] = useState(false)
+  // else{
+  //   console.log('passwords do not match')
+  // }
+  // };
+  const [pswd2, setPswd2] = useState(false);
   const user = (
     <FontAwesomeIcon icon={faUser} className="self-center text-blue-500" />
   );
@@ -114,7 +117,7 @@ function Register() {
                 className="bg-inherit w-full focus:outline-none"
                 placeholder="Repeat Password ..."
                 onChange={(e) => {
-                  setPswd2(e.target.value)
+                  setPswd2(e.target.value);
                 }}
               />
             </div>

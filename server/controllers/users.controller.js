@@ -11,7 +11,7 @@ const existingUser = async (req, res, next) => {
   const result = await usersCollection.findOne({
     email: req.body.email
   });
-  if (result != undefined) {
+  if (result) {
     res.status(409).json({ success: false, message: "Existing User" });
   } else {
     next();
