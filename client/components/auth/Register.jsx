@@ -3,6 +3,7 @@ import { faEnvelope, faLock, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 function Register() {
   var values = {
     name: null,
@@ -11,8 +12,7 @@ function Register() {
   };
   const HandleSubmit = async (e) => {
     e.preventDefault();
-    // if(values.pswd === pswd2){
-    alert(values.pswd);
+    if(values.pswd === pswd2){
     var options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -22,17 +22,17 @@ function Register() {
     try {
       const res = await fetch(`${baseurl}/users/register`, options);
       const data = await res.json();
-      data.success ? alert("registered") : alert("failed registration");
+      data.success ? toast.success("registered") : toast.warning(data.message);
     } catch (error) {
-      alert(
+      toast.error(
         "Something went wrong:\n Check your internet connection and try again."
       );
     }
+  }
+  else{
+    toast.error('passwords do not match ')
+  }
   };
-  // else{
-  //   console.log('passwords do not match')
-  // }
-  // };
   const [pswd2, setPswd2] = useState(false);
   const user = (
     <FontAwesomeIcon icon={faUser} className="self-center text-blue-500" />

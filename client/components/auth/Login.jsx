@@ -1,8 +1,10 @@
 import baseurl from "@/config/host";
-import {faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Login() {
   var values = {
     email: null,
@@ -18,11 +20,11 @@ function Login() {
     try {
       const res = await fetch(`${baseurl}/users/login`, options);
       const data = await res.json();
-      data.token != null
-        ? alert("correct password")
-        : alert("Incorrect Password");
+      data.token != null ? toast.success("correct password") : toast.error(data.message);
     } catch (error) {
-      alert("Something went wrong:\n Check your internet connection and try again.");
+      toast.warning(
+        "Something went wrong:\n Check your internet connection and try again."
+      );
     }
   };
   const email = (
@@ -33,7 +35,7 @@ function Login() {
     <FontAwesomeIcon icon={faLock} className="self-center text-blue-500" />
   );
   return (
-    <div className="fixed -z-20 bg-slate-200  top-0 left-0 h-screen w-screen flex flex-col justify-center">
+    <div className="fixed -z-10 bg-slate-200  top-0 left-0 h-screen w-screen flex flex-col justify-center">
       <div className="mx-auto space-y-4 lg:mt-20 lg:bg-[#F8F8F8] text-black w-11/12 lg:w-96 p-5 rounded-2xl">
         <div className="flex justify-between">
           <div>
@@ -88,6 +90,7 @@ function Login() {
           </Link>
         </p>
       </div>
+      
     </div>
   );
 }

@@ -6,16 +6,18 @@ const {
 } = require("../utilities/password.utilities");
 const updateDoc = require("../utilities/update.utilities");
 const existingUser = async (req, res, next) => {
+  try{
   var db = await connectToDatabase();
   var usersCollection = await db.collection("Users");
   const result = await usersCollection.findOne({
     email: req.body.email
   });
-  if (result) {
-    res.status(409).json({ success: false, message: "Existing User" });
-  } else {
-    next();
-  }
+  result
+    ? res.status(409).json({ success: false, message: "Existing User" })
+    : next();
+}catch(error){
+  res.send(error)
+}
 };
 
 const register = async (req, res, next) => {
@@ -57,15 +59,15 @@ const login = async (req, res, next) => {
         );
         success
           ? res.status(200).json({ token, message })
-          : res.status(503).json({ message, error: true });
+          : res.status(401).json({ message, error: true });
       } else {
-        res.status(404).json({ message: "non-existing account" });
+        res.status(401).json({ message: "Email and Password do not match" });
       }
     } catch (error) {
       console.log(error.message);
     }
   } else {
-    res.status(404).json({ message: "non-existing account" });
+    res.status(404).json({ message: "Account does not exist" });
   }
 };
 const photoupload = async (req, res) => {
