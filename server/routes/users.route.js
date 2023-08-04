@@ -13,7 +13,6 @@ const router = express();
 router.post("/register", existingUser, register);
 router.post("/login", login);
 router.post("/verifytoken", checkToken);
-router.post("/verifytoken", checkToken);
 router.post("/verifyemail", verificationmail);
 router.post("/photoupload", photoupload);
 module.exports = router;

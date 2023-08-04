@@ -2,6 +2,7 @@ import baseurl from "@/config/host";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,6 +11,7 @@ function Login() {
     email: null,
     pswd: null
   };
+  const router = useRouter();
   const HandleSubmit = async (e) => {
     e.preventDefault();
     var options = {
@@ -20,7 +22,13 @@ function Login() {
     try {
       const res = await fetch(`${baseurl}/users/login`, options);
       const data = await res.json();
-      data.token != null ? toast.success("correct password") : toast.error(data.message);
+      data.token != null
+        ? (toast.success("Login Successfully"),
+          localStorage.setItem("token", data.token),
+          router.push({
+            pathname: "/auth/"
+          }))
+        : toast.error(data.message);
     } catch (error) {
       toast.warning(
         "Something went wrong:\n Check your internet connection and try again."
@@ -90,7 +98,6 @@ function Login() {
           </Link>
         </p>
       </div>
-      
     </div>
   );
 }

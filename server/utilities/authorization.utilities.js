@@ -1,11 +1,12 @@
 const jwt = require("jsonwebtoken");
 const secretkey = process.env.SECRET_KEY;
-const checkToken = async (req,res) => {
-    var {token} = req.body
+const checkToken = async (req, res) => {
+  var { token } = req.body;
   try {
     if (token === "" || token === undefined || token === null) {
       res.json({
-        success: false
+        success: false,
+        message: "odd value"
       });
     } else {
       res.json({
