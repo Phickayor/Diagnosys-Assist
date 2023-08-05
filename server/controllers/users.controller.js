@@ -6,18 +6,18 @@ const {
 } = require("../utilities/password.utilities");
 const updateDoc = require("../utilities/update.utilities");
 const existingUser = async (req, res, next) => {
-  try{
-  var db = await connectToDatabase();
-  var usersCollection = await db.collection("Users");
-  const result = await usersCollection.findOne({
-    email: req.body.email
-  });
-  result
-    ? res.status(409).json({ success: false, message: "Existing User" })
-    : next();
-}catch(error){
-  res.send(error)
-}
+  try {
+    var db = await connectToDatabase();
+    var usersCollection = await db.collection("Users");
+    const result = await usersCollection.findOne({
+      email: req.body.email
+    });
+    result
+      ? res.status(409).json({ success: false, message: "Existing User" })
+      : next();
+  } catch (error) {
+    res.send(error);
+  }
 };
 
 const register = async (req, res, next) => {

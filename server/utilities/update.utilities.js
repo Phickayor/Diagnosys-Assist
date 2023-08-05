@@ -7,7 +7,7 @@ const collection = await db.collection(collectionName)
 const result = await collection.updateOne(filter,{$set:update})
 return result.matchedCount === 1
   ? { success: true }
-  : { success: false};
+  : { success: false,message:"Unable to Update"};
 }catch(err){
     console.log("Error in updating document", err);
 }
