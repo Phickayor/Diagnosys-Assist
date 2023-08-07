@@ -6,13 +6,14 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero';
 import Reviews from '@/components/Reviews';
 import Services from '@/components/Services';
-
+import { Poppins } from "next/font/google";
+const poppins = Poppins({ subsets: ["latin"], weight: ["400","600","700"] });
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className={`min-h-screen ${poppins.className}`}>
       <Background/>
       <Header />
-      <div className=" mx-auto w-11/12 py-10 space-y-5">
+      <div className=" mx-auto w-11/12 py-10 space-y-6">
         <Hero />
         <About />
         <Services />
