@@ -43,7 +43,7 @@ function Login() {
     <FontAwesomeIcon icon={faLock} className="self-center text-blue-500" />
   );
   return (
-    <div className="fixed -z-10 bg-slate-200  top-0 left-0 h-screen w-screen flex flex-col justify-center">
+    <div className="absolute -z-10  top-0 left-0 h-screen w-screen flex flex-col justify-center">
       <div className="mx-auto space-y-4 lg:mt-20 lg:bg-[#F8F8F8] text-black w-11/12 lg:w-96 p-5 rounded-2xl">
         <div className="flex justify-between">
           <div>
