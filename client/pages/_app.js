@@ -6,14 +6,16 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 // Prevent fontawesome from adding its CSS since we did it manually above:
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { ToastContainer } from "react-toastify";
-import Background from "@/components/Background";
 config.autoAddCss = false;
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Background>
-        <Component {...pageProps} /> <ToastContainer />
-      </Background>
+      <div className="flex">
+        <div className="fixed opacity-30 right-0 bg-green-500 h-56 lg:h-72 backdrop blur-lg w-56 lg:w-72 -z-10 rounded-full"></div>
+        <div className="fixed opacity-30  bottom-0 bg-green-500 h-56 lg:h-72 backdrop blur-lg w-56 lg:w-72 -z-10 rounded-full"></div>
+      </div>
+      <Component {...pageProps} className="font-poppins" />
+      <ToastContainer />
     </>
   );
 }

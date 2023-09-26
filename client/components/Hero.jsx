@@ -1,24 +1,32 @@
+import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 function Hero() {
+  const angle = <FontAwesomeIcon icon={faAngleDoubleRight} />;
   return (
-    <div className="flex justify-between gap-x-10 h-fit">
-      <div className="w-3/5 flex px-5 flex-col justify-center">
-        <h1 className="text-5xl font-semibold leading-[4rem]">
-          Empowering <span className="text-blue-500">Health</span>, One{" "}
-          <span className="text-blue-500">Connection</span> at a{" "}
-          <span className="text-blue-500">Time</span>.
-        </h1>
-        <p className="text-2xl m-2">
-          We provide seamless healthcare services at{" "}
-          <span className="text-blue-500">Diagnosys Assist</span>.
-        </p>
-        <button className="m-2 rounded-xl hover:bg-blue-600 font-semibold text-lg bg-blue-500 text-white w-fit  py-3 px-10">Try Now</button>
+    <div className="pt-10 h-screen flex flex-col justify-center mx-auto md:w-11/12">
+      <div className="grid lg:grid-cols-2 gap-y-10 lg:gap-y-0">
+        <div className="order-2 lg:order-1 self-center px-5 md:px-10 space-y-5">
+          <h1 className="text-2xl md:text-4xl md:leading-[3rem] lg:text-5xl font-semibold lg:leading-[4rem]">
+            Empowering <span className="text-deepGreen">Health</span> one
+            Connection at a <span className="text-deepGreen">time</span>.
+          </h1>
+          <p className="text-lg lg:leading-2">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
+            iste quos veritatis et.
+          </p>
+          <button className="hover:scale-105 duration-200 font-medium rounded-md bg-green-600 text-white px-4 py-2.5">
+            Explore {angle}
+          </button>
+        </div>
+        <div class="self-center order-1 lg:order-2 px-5 md:px-10">
+          <img
+            src="/images/hero.jpeg"
+            className="object-cover max-h-56 md:max-h-72 xl:max-h-96 rounded-3xl w-full"
+          />
+        </div>
       </div>
-      <img
-        className="rounded-3xl mx-auto w-2/5 h-[26rem]  object-cover"
-        src="/images/heroimg.jpg"
-      />
     </div>
   );
 }
