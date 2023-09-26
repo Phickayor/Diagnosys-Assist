@@ -2,17 +2,18 @@ import React from "react";
 import servicesList from "../utils/services.json";
 function Services() {
   return (
-    <div className="min-h-screen mx-auto md:w-11/12 px-5 md:px-10">
-      <h1 className="text-4xl  font-semibold text-center py-5 ">
-        What we <span className="text-deepGreen">Do</span>?
-      </h1>
+    <div className="min-h-screen mx-auto md:w-11/12 px-5 py-4 md:px-10">
+      <div className="space-y-2">
+        <h1 className="md:text-4xl text-3xl font-semibold text-center ">
+          What we <span className="text-deepGreen">Do</span>?
+        </h1>
+      </div>
+
       <div className="grid lg:grid-cols-3 sm:grid-cols-2 my-10 gap-10">
         {servicesList.map((service, index) => (
           <div
-            data-aos="fade-up"
-            data-aos-duration="1500"
             key={index}
-            className="bg-green-700 shadow-white shadow-inner text-white rounded-3xl p-5 h-full self-center"
+            className="bg-green-700 shadow-white shadow-inner text-white rounded-3xl p-5 sm:h-full h-fit self-center"
           >
             <img
               src="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=4000"
