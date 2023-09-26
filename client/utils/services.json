@@ -1,35 +1,34 @@
 [
   {
-    "service": "Online Diagnosis",
-    "image": "/images/aboutimg.jpg",
-    "description": "(Chat with a Doctor)"
+    "name": "Online Diagnosis (Chat with a Doctor)",
+    "desc": "Chat with a doctor online for immediate medical advice and prescriptions"
   },
   {
-    "service": "Mobile Nursing",
-    "image": "/images/aboutimg.jpg"
+    "name": "Mobile Nursing",
+    "desc": "Healthcare delivered to your doorstep by experienced nurses for a range of medical needs"
   },
   {
-    "service": "Mental Nursing",
-    "image": "/images/aboutimg.jpg"
+    "name": "Mental Nursing",
+    "desc": "Compassionate support and treatment for mental health concerns, tailored to your unique needs"
   },
   {
-    "service": "Home Embamblement",
-    "image": "/images/aboutimg.jpg"
+    "name": "Home Embamblement",
+    "desc": "Customized care plans and therapy provided in your home for improved mobility and recovery"
   },
   {
-    "service": "Ambulance Services",
-    "image": "/images/aboutimg.jpg"
+    "name": "Ambulance Names",
+    "desc": "Advanced ambulances equipped with top-notch medical gear and staffed by skilled paramedics, providing emergency care"
   },
   {
-    "service": "Geriatric Nursing",
-    "image": "/images/aboutimg.jpg"
+    "name": "Geriatric Nursing",
+    "desc": "Personalized care for seniors, ensuring both physical and emotional well-being, in the comfort of their own homes"
   },
   {
-    "service": "Medical Outreach",
-    "image": "/images/aboutimg.jpg"
+    "name": "Medical Outreach",
+    "desc": "Healthcare brought to underserved communities through screenings, vaccinations, and health education, in collaboration with local organizations"
   },
   {
-    "service": "Recruitment of registered nurses",
-    "image": "/images/aboutimg.jpg"
+    "name": "Recruitment of Registered Nurses",
+    "desc": "Fulfill your career as a registered nurse in a supportive and growth-oriented environment, making a meaningful impact on patient lives"
   }
 ]
