@@ -1,26 +1,33 @@
+import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React from "react";
 
 function About() {
+  const angle = <FontAwesomeIcon icon={faAngleDoubleRight} />;
   return (
-    <div className="flex gap-x-5">
-      <img
-        src="/images/aboutimg.jpg"
-        className="rounded-3xl mx-auto w-1/3 object-cover"
-      />
-      <div className="p-5 px-10 flex flex-col justify-center space-y-4">
-        <h1 className="text-3xl font-semibold">About Us</h1>
-        <p className="text-xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure natus
-          sint ab velit dolores ipsum dolore, fugiat culpa obcaecati aliquam
-          pariatur ipsa eum dolor cupiditate, magni eaque neque facilis nulla!
-        </p>
-        <Link
-          href="about"
-          className="m-2 rounded-xl hover:bg-blue-600 font-medium text-lg bg-blue-500 text-white w-fit  py-2 px-5"
-        >
-          Learn More
-        </Link>
+    <div>
+      <h1 className="text-4xl  font-semibold text-center py-5 ">
+        Who we <span className="text-deepGreen">Are</span>?
+      </h1>
+      <div className="flex py-5 justify-around mx-auto md:w-11/12 px-5 md:px-10">
+        <img
+          src="/images/aboutimg.jpg"
+          className="rounded-3xl mx-auto w-1/3 self-end hidden lg:block object-cover"
+        />
+        <div className="flex flex-col justify-center self-center space-y-4 px-20">
+          <p className="md:text-lg ">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Dignissimos aliquam a, beatae nesciunt animi mollitia et? Molestias
+            quidem dolorem suscipit consequuntur praesentium molestiae, quam
+            quas consectetur sapiente explicabo, atque delectus. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Dolorum, nemo ipsam
+            asperiores, cum
+          </p>
+          <Link href="" className="text-deepGreen">
+            Learn More {angle}
+          </Link>
+        </div>
       </div>
     </div>
   );

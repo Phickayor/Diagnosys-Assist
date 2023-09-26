@@ -14,7 +14,7 @@ function Header() {
   );
 
   return (
-    <header className="fixed top-0 z-20 bg-deepGreen text-white  py-4 border-b-2 w-full flex justify-between lg:px-20 px-5">
+    <header className="sticky top-0 z-20 bg-deepGreen text-white  py-4 border-b-2 w-full flex justify-between lg:px-20 px-5">
       {/* Logo */}
       <h1 className="self-center lg:text-lg font-medium text-lightGray">
         Diagnosys

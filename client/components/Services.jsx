@@ -3,10 +3,10 @@ import servicesList from "../utils/services.json";
 function Services() {
   return (
     <div className="min-h-screen mx-auto md:w-11/12 px-5 md:px-10">
-      <h1 className="text-4xl  font-semibold text-center py-10">
-        What We <span className="text-green-500">Do</span>?
+      <h1 className="text-4xl  font-semibold text-center py-5 ">
+        What we <span className="text-deepGreen">Do</span>?
       </h1>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 my-10 gap-10">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 my-10 gap-10">
         {servicesList.map((service, index) => (
           <div
             data-aos="fade-up"

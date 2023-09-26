@@ -5,10 +5,10 @@ import React from "react";
 function Hero() {
   const angle = <FontAwesomeIcon icon={faAngleDoubleRight} />;
   return (
-    <div className="pt-10 h-screen flex flex-col justify-center mx-auto md:w-11/12">
+    <div className="pt-5 lg:py-20 flex flex-col justify-center mx-auto md:w-11/12">
       <div className="grid lg:grid-cols-2 gap-y-10 lg:gap-y-0">
-        <div className="order-2 lg:order-1 self-center px-5 md:px-10 space-y-5">
-          <h1 className="text-2xl md:text-4xl md:leading-[3rem] xl:text-5xl font-semibold xl:leading-[4rem]">
+        <div className="order-2 lg:order-1 self-center px-5 md:px-10 space-y-4">
+          <h1 className="text-3xl leading-[3rem] xl:text-5xl font-semibold xl:leading-[4rem]">
             Empowering <span className="text-deepGreen">Health</span> one
             Connection at a <span className="text-deepGreen">time</span>.
           </h1>
