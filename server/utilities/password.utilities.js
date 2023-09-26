@@ -32,4 +32,5 @@ const deCryptPassword = async (pswd, hash) => {
     };
   }
 };
+
 module.exports = { encryptPassword, deCryptPassword };

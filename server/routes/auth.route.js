@@ -4,9 +4,9 @@ const {
   existingUser,
   login,
   photoupload
-} = require("../controllers/users.controller");
+} = require("../controllers/auth.controller");
 const { checkToken } = require("../utilities/authorization.utilities");
-const validator = require("../utilities/emailvalidator.utilities");
+//const validator = require("../utilities/emailvalidator.utilities");
 const verificationmail = require("../utilities/emailverification.utilities");
 const router = express();
 
