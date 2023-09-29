@@ -1,22 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import servicesList from "../utils/services.json";
-function Services() {
-  return (
-    <div className="min-h-screen mx-auto md:w-11/12 px-5 py-4 md:px-10">
-      <div className="space-y-2">
-        <h1 className="md:text-4xl text-3xl font-semibold text-center ">
-          What we <span className="text-deepGreen">Do</span>?
-        </h1>
-      </div>
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-      <div className="grid lg:grid-cols-3 sm:grid-cols-2 my-10 gap-10">
+function Services() {
+  const [numberOfSlides, setNumberOfSlides] = useState(null);
+
+  function handleScreenSizeChange() {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth < 768) {
+      setNumberOfSlides(1);
+    } else if (screenWidth >= 768 && screenWidth < 1024) {
+      setNumberOfSlides(2);
+    } else {
+      setNumberOfSlides(3);
+    }
+  }
+
+  useEffect(() => {
+    handleScreenSizeChange();
+    window.addEventListener("resize", handleScreenSizeChange);
+  }, []);
+
+  const settings = {
+    infinite: true,
+    slidesToShow: numberOfSlides,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 500
+  };
+
+  return (
+    <div className="mx-auto lg:w-11/12 px-5 py-4 lg:px-10">
+      <h1 className="md:text-4xl text-3xl font-semibold text-center ">
+        What we <span className="text-deepGreen">Do</span>?
+      </h1>
+
+      <Slider {...settings} className="my-4">
         {servicesList.map((service, index) => (
           <div
             key={index}
-            className="bg-green-700 shadow-white shadow-inner text-white rounded-3xl p-5 sm:h-full h-fit self-center"
+            className="bg-green-700 text-white rounded-3xl p-5 h-[24rem]" // Add mr-4 for spacing between slides
           >
             <img
-              src="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=4000"
+              src="/images/demo.jpeg"
               alt={service.name}
               className="h-36 rounded-2xl w-full object-cover"
             />
@@ -31,7 +60,7 @@ function Services() {
             </div>
           </div>
         ))}
-      </div>
+      </Slider>
     </div>
   );
 }
