@@ -13,8 +13,12 @@ function About() {
           className="rounded-3xl mx-auto w-1/3 self-end hidden lg:block object-cover"
         />
         <div className="flex flex-col justify-center self-center space-y-6 lg:px-20">
-          <h1 className="md:text-4xl text-3xl lg:text-center font-semibold ">            Who we <span className="text-deepGreen">Are</span>?
-          </h1>
+          <div className="space-y-2">
+            <span className="mini-header block mx-auto w-fit">About Us</span>
+            <h1 className="header text-center">
+              Who we <span className="text-deepGreen">Are</span>?
+            </h1>
+          </div>
           <p className="md:text-lg ">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Dignissimos aliquam a, beatae nesciunt animi mollitia et? Molestias

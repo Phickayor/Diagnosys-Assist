@@ -34,10 +34,12 @@ function Services() {
 
   return (
     <div className="mx-auto lg:w-11/12 px-5 py-4 lg:px-10">
-      <h1 className="md:text-4xl text-3xl font-semibold text-center ">
-        What we <span className="text-deepGreen">Do</span>?
-      </h1>
-
+      <div className="space-y-2">
+        <span className="mini-header block mx-auto w-fit">Our Services</span>
+        <h1 className="header text-center ">
+          What we <span className="text-deepGreen">Do</span>?
+        </h1>
+      </div>
       <Slider {...settings} className="my-4">
         {servicesList.map((service, index) => (
           <div

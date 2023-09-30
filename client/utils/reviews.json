@@ -1,0 +1,42 @@
+[
+  {
+    "name": "John Doe",
+    "service": "Online Diagnosis (Chat with a Doctor)",
+    "review": "I was so grateful for the opportunity to chat with a doctor online. I was able to get a diagnosis and prescription quickly and easily, without having to leave my home. The doctor was very knowledgeable and helpful, and I would definitely use this service again."
+  },
+  {
+    "name": "Jane Doe",
+    "service": "Mobile Nursing",
+    "review": "Mobile nursing is a lifesaver! I'm able to get the care I need in the comfort of my own home, which is especially helpful when I'm not feeling well. The nurses are always on time and professional, and they make sure to answer all of my questions. I highly recommend mobile nursing to anyone who needs it."
+  },
+  {
+    "name": "Mike Jones",
+    "service": "Mental Nursing",
+    "review": "Mental nursing has helped me so much in my recovery from depression. The nurses are so kind and understanding, and they've helped me to develop coping mechanisms and strategies for managing my mental health. I'm so grateful for their support."
+  },
+  {
+    "name": "Susan Smith",
+    "service": "Home Embamblement",
+    "review": "Home embamblement has been a great experience for me and my family. I'm able to recover from my injury in the comfort of my own home, and the therapists are always there to help me. I'm making great progress thanks to home embamblement."
+  },
+  {
+    "name": "David Williams",
+    "service": "Ambulance Service",
+    "review": "I'm so grateful for the ambulance service. When I had a medical emergency, the paramedics arrived quickly and provided me with excellent care. They were very professional and reassuring, and they made sure that I was comfortable and safe on the way to the hospital."
+  },
+  {
+    "name": "Mary Johnson",
+    "service": "Geriatric Nursing",
+    "review": "Geriatric nursing has been a blessing for my parents. They're able to stay in their home and live comfortably, thanks to the care they receive from the nurses. The nurses are very kind and compassionate, and they make sure that my parents have everything they need."
+  },
+  {
+    "name": "Charles Brown",
+    "service": "Medical Outreach",
+    "review": "Medical outreach is an essential service for underserved communities. It provides people with access to healthcare that they might not otherwise have. I'm grateful for the organizations that provide medical outreach, and I encourage everyone to support their work."
+  },
+  {
+    "name": "Sarah Taylor",
+    "service": "Recruitment of Registered Nurses",
+    "review": "I'm so glad that I chose to become a registered nurse. It's a rewarding career that allows me to make a difference in the lives of my patients. I'm grateful to work in a supportive and growth-oriented environment where I can continue to learn and grow as a nurse."
+  }
+]

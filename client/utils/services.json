@@ -1,33 +1,25 @@
-[
-  {
+[{
     "name": "Online Diagnosis (Chat with a Doctor)",
     "desc": "Chat with a doctor online for immediate medical advice and prescriptions"
-  },
-  {
+  },{
     "name": "Mobile Nursing",
     "desc": "Healthcare delivered to your doorstep by experienced nurses for a range of medical needs"
-  },
-  {
+  },{
     "name": "Mental Nursing",
     "desc": "Compassionate support and treatment for mental health concerns, tailored to your unique needs"
-  },
-  {
+  },{
     "name": "Home Embamblement",
     "desc": "Customized care plans and therapy provided in your home for improved mobility and recovery"
-  },
-  {
-    "name": "Ambulance Names",
+  },{
+    "name": "Ambulance Services",
     "desc": "Advanced ambulances equipped with top-notch medical gear and staffed by skilled paramedics, providing emergency care"
-  },
-  {
+  },{
     "name": "Geriatric Nursing",
     "desc": "Personalized care for seniors, ensuring both physical and emotional well-being, in the comfort of their own homes"
-  },
-  {
+  },{
     "name": "Medical Outreach",
     "desc": "Healthcare brought to underserved communities through screenings, vaccinations, and health education, in collaboration with local organizations"
-  },
-  {
+  },{
     "name": "Recruitment of Registered Nurses",
     "desc": "Fulfill your career as a registered nurse in a supportive and growth-oriented environment, making a meaningful impact on patient lives"
   }

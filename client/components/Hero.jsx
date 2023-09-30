@@ -20,7 +20,7 @@ function Hero() {
             Explore {angle}
           </button>
         </div>
-        <div class="self-center order-1 lg:order-2 px-5 md:px-10">
+        <div className="self-center order-1 lg:order-2 px-5 md:px-10">
           <img
             src="/images/hero.jpeg"
             className="object-cover max-h-56 md:max-h-72 xl:max-h-96 rounded-3xl w-full"
